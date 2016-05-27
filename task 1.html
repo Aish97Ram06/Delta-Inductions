@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ </head>
+ <body>
+  <h2 style="text-align:center"> Countdown Timer </h2>
+  <h3> Enter details : </h3>
+
+  </br>
+   <p display="inline-block" >
+    MONTH:
+    <input id="zero" type="number" name="month"> </input> 
+    DAY:
+    <input id="one" type="number" name="date"> </input> 
+    HOUR:
+    <input id="two" type="number" name="hours"> </input> 
+    MINUTE:
+    <input id="three" type="number" name="minute"> </input> 
+    SECOND:
+    <input id="four" type="number" name="second"> </input> 
+   </p> 
+  </br>
+
+ <div style="text-align:center">
+  <button onClick="myFunc()">Start
+  </button>
+ </div>
+
+ <p style="text-align:center" id="txt"> Time left is </p>
+
+ <script>
+ function myFunc()
+ {
+  var d1=new Date();
+  var d2=new Date();
+ d1.setMonth(document.getElementById("zero").value-1);
+ d1.setDate(document.getElementById("one").value);
+ d1.setHours(document.getElementById("two").value);
+ d1.setMinutes(document.getElementById("three").value);
+ d1.setSeconds(document.getElementById("four").value);
+  var sec1=Date.parse(d2);
+  var sec2=Date.parse(d1);
+  var sec3=(sec2-sec1)/1000;
+  var d=(sec3-sec3%86400)/86400;
+  var h=(sec3%86400-(sec3%86400)%3600)/3600;
+  var s=sec3%60;
+  var m=(sec3-(d*86400)-(h*3600)-s)/60;
+  var x=setInterval(function(){ Timer() },1000);
+ function Timer()
+ {if(s!=0)
+   s=s-1;
+  else {m=m-1;
+        s=59;}
+  if(s==0 && m==0)
+   {h=h-1;
+    m=59;
+    s=59;}
+  if(s==0 && m==0 && h==0)
+   {d=d-1;
+    h=23;
+    m=59;
+    s=59;}
+ document.getElementById("txt").innerHTML=d + " days : " + h +" hours : " + m +" minutes : " + s + " seconds ";
+ }
+ }
+ </script>
+ </body>
+</html>
