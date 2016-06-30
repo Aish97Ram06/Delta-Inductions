@@ -84,8 +84,7 @@ function gamepiece(width, height, color, x, y,type)
                (myleft > otherright)) 
            crash = false;
          if(crash==true)
-         {
-         context.font="20px Arial";
+         {context.font="20px Arial";
          context.fillStyle="#330033";
          context.fillText("Game Over !!",300,100);
          context.font="25px Arial";
@@ -95,18 +94,16 @@ function gamepiece(width, height, color, x, y,type)
         return crash;
       } 
   }
+ 
 
 function drawit()
 {  var x,y;
     for (i = 0; i < obstacles.length; i += 1) 
     {
         if (object.collide(obstacles[i])) 
-        {function stop()
-            { 
-              clearInterval(demo);
-            }
-            return;
-        }
+           function stop()
+            { clearInterval(demo); }
+         return;       
     }
 
     context.clearRect(0,0,canvas.width,canvas.height);
@@ -120,9 +117,7 @@ function drawit()
         obstacles.push(new gamepiece(15, 20, "black",canvas.width,canvas.height-20));
     }
     for (i = 0; i < obstacles.length; i += 1) 
-    {   if(i%4==0)
-        obstacles[i].x+=-7;
-        else
+    {  
         obstacles[i].x += -5;
         obstacles[i].redraw();
     }
@@ -133,8 +128,7 @@ function drawit()
 }
 function renewobstacle(n) {
     if ((frame / n) % 1 == 0) {return true;}
-    return false; }
- 
+    return false; } 
 }
 </script>
 </body>
